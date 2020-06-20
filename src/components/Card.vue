@@ -1,8 +1,8 @@
 <template>
   <div v-on:click="toggleCard" v-bind:class="{inactive: isActive}" class="playingCards">
-    <a class="card rank-k spades">
-      <span class="rank">K</span>
-      <span class="suit">&hearts;</span>
+    <a class="card" :class="[rankClass, suit]">
+      <span class="rank">{{ rank }}</span>
+      <span class="suit"><span v-html="suitSymbol"></span></span>
     </a>
   </div>
 </template>
@@ -12,11 +12,18 @@ export default {
   name: 'Card',
   props: {
     rank: String,
+    rankClass: String,
+    suit: String
   },
   data: function () {
     return {
       isActive: false
     };
+  },
+  computed: {
+    suitSymbol: function () {
+      return "&" + this.suit + ";";
+    }
   },
   methods: {
     toggleCard: function (){
@@ -31,6 +38,6 @@ export default {
     width: 13%;
   }
   .inactive {
-    opacity: 50%;
+    opacity: 25%;
   }
 </style>

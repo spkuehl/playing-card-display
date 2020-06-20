@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Card rank="Ace"></Card>
+    <Card rank="K" rankClass="rank-k" suit="hearts"></Card>
   </div>
 </template>
 
