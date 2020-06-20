@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    upper: <input type="number" name="upper" max="14" min="2" v-model="upper" placeholder="14">
+    upper: <input type="number" name="upper" max="14" min="1" v-model="upper" placeholder="14">
     <Suit suit="spades" :ranks="ranks"></Suit>
     <Suit suit="hearts" :ranks="ranks"></Suit>
     <Suit suit="clubs" :ranks="ranks"></Suit>
@@ -27,7 +27,6 @@ export default {
   watch: {
     upper: function () {
       this.ranks = (this.ranksList.slice(0,this.upper))
-      console.log('chages!');
     }
   }
 }
