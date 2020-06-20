@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <Card rank="K" suit="hearts"></Card>
+    <Suit suit="spades"></Suit>
+    <Suit suit="hearts"></Suit>
+    <Suit suit="clubs"></Suit>
+    <Suit suit="diams"></Suit>
   </div>
 </template>
 
 <script>
-import Card from './components/Card.vue'
+import Suit from './components/Suit.vue'
 
 export default {
   name: 'App',
   components: {
-    Card
+    Suit
   }
 }
 </script>
