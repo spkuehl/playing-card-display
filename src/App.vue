@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    upper: <input type="number" name="upper" max="14" min="1" v-model="upper" placeholder="14">
+    upper: <input type="number" name="upper" max="13" min="1" v-model="upper" placeholder="13">
     <Suit suit="spades" :ranks="ranks"></Suit>
     <Suit suit="hearts" :ranks="ranks"></Suit>
     <Suit suit="clubs" :ranks="ranks"></Suit>
@@ -21,7 +21,7 @@ export default {
       faceOnly: false,
       ranksList: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
       ranks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
-      upper: '14',
+      upper: '13',
     };
   },
   watch: {
