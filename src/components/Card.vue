@@ -1,6 +1,9 @@
 <template>
-  <div v-on:click="toggleCard" v-bind:class="{active: isActive}" class="playing-card">
-    <p>{{rank}}</p>
+  <div v-on:click="toggleCard" v-bind:class="{inactive: isActive}" class="playingCards">
+    <a class="card rank-k spades">
+      <span class="rank">K</span>
+      <span class="suit">&hearts;</span>
+    </a>
   </div>
 </template>
 
@@ -12,7 +15,7 @@ export default {
   },
   data: function () {
     return {
-      isActive: true
+      isActive: false
     };
   },
   methods: {
@@ -24,12 +27,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .playing-card {
+  .playingCards {
     width: 13%;
-    border-style: groove;
-    height: 125px;
   }
-  .active {
-    color: blue;
+  .inactive {
+    opacity: 50%;
   }
 </style>
