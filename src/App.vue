@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <Suit suit="spades"></Suit>
-    <Suit suit="hearts"></Suit>
-    <Suit suit="clubs"></Suit>
-    <Suit suit="diams"></Suit>
+    <button v-on:click="toggleFaceOnly">Face Cards Only</button>
+    <Suit suit="spades" :ranks="ranks" faceOnly=faceOnly></Suit>
+    <Suit suit="hearts" :ranks="ranks" faceOnly=faceOnly></Suit>
+    <Suit suit="clubs" :ranks="ranks" faceOnly=faceOnly></Suit>
+    <Suit suit="diams" :ranks="ranks" faceOnly=faceOnly></Suit>
   </div>
 </template>
 
@@ -14,6 +15,17 @@ export default {
   name: 'App',
   components: {
     Suit
+  },
+  data: function () {
+    return {
+      faceOnly: false,
+      ranks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2']
+    };
+  },
+  methods: {
+    toggleFaceOnly: function (){
+      this.faceOnly = !this.faceOnly;
+    }
   }
 }
 </script>

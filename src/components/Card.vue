@@ -36,7 +36,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .playingCards {
-    width: 13%;
-  }
+
 </style>
