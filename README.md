@@ -7,7 +7,7 @@ Input an upper bound input to restrict the grid to cards of higher value, for ex
 CSS provided by [CSS-Playing-Cards](https://github.com/selfthinker/CSS-Playing-Cards)
 
 ### Sample Grid
-<img src="images/sample-grid.jpg" width="40%">
+<img src="images/sample-grid.JPG" width="40%">
 
 
 Written in Vue.
