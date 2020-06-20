@@ -12,7 +12,6 @@ export default {
   name: 'Card',
   props: {
     rank: String,
-    rankClass: String,
     suit: String
   },
   data: function () {
@@ -23,6 +22,9 @@ export default {
   computed: {
     suitSymbol: function () {
       return "&" + this.suit + ";";
+    },
+    rankClass: function () {
+      return "rank-" + this.rank.toLowerCase();
     }
   },
   methods: {
