@@ -1,6 +1,6 @@
 <template>
-  <div v-on:click="toggleCard" v-bind:class="{inactive: isActive}" class="playingCards">
-    <a class="card" :class="[rankClass, suit]">
+  <div v-on:click="toggleCard" class="playingCards">
+    <a class="card" :class="[rankClass, [(isActive) ? suit : ''], {back: !isActive}]">
       <span class="rank">{{ rank }}</span>
       <span class="suit"><span v-html="suitSymbol"></span></span>
     </a>
@@ -16,7 +16,7 @@ export default {
   },
   data: function () {
     return {
-      isActive: false
+      isActive: true
     };
   },
   computed: {
@@ -38,8 +38,5 @@ export default {
 <style lang="css" scoped>
   .playingCards {
     width: 13%;
-  }
-  .inactive {
-    opacity: 25%;
   }
 </style>
