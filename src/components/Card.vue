@@ -1,5 +1,5 @@
 <template>
-  <div class="playing-card">
+  <div v-on:click="toggleCard" v-bind:class="{active: isActive}" class="playing-card">
     <p>{{rank}}</p>
   </div>
 </template>
@@ -8,15 +8,28 @@
 export default {
   name: 'Card',
   props: {
-    rank: String
+    rank: String,
+  },
+  data: function () {
+    return {
+      isActive: true
+    };
+  },
+  methods: {
+    toggleCard: function (){
+      this.isActive = !this.isActive;
+    }
   }
 }
 </script>
 
 <style lang="css" scoped>
   .playing-card {
-    background-color: blue;
     width: 13%;
-    height: 25%;
+    border-style: groove;
+    height: 125px;
+  }
+  .active {
+    color: blue;
   }
 </style>

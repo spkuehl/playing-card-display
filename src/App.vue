@@ -1,19 +1,15 @@
 <template>
   <div id="app">
     <Card rank="Ace"></Card>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to YoACEur Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Card from './components/Card.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     Card
   }
 }
