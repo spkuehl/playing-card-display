@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <button v-on:click="toggleFaceOnly">Face Cards Only</button>
-    <Suit suit="spades" :ranks="ranks" faceOnly=faceOnly></Suit>
-    <Suit suit="hearts" :ranks="ranks" faceOnly=faceOnly></Suit>
-    <Suit suit="clubs" :ranks="ranks" faceOnly=faceOnly></Suit>
-    <Suit suit="diams" :ranks="ranks" faceOnly=faceOnly></Suit>
+    upper: <input type="number" name="upper" max="14" min="2" v-model="upper" placeholder="14">
+    <Suit suit="spades" :ranks="ranks"></Suit>
+    <Suit suit="hearts" :ranks="ranks"></Suit>
+    <Suit suit="clubs" :ranks="ranks"></Suit>
+    <Suit suit="diams" :ranks="ranks"></Suit>
   </div>
 </template>
 
@@ -19,12 +19,15 @@ export default {
   data: function () {
     return {
       faceOnly: false,
-      ranks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2']
+      ranksList: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
+      ranks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
+      upper: '14',
     };
   },
-  methods: {
-    toggleFaceOnly: function (){
-      this.faceOnly = !this.faceOnly;
+  watch: {
+    upper: function () {
+      this.ranks = (this.ranksList.slice(0,this.upper))
+      console.log('chages!');
     }
   }
 }
