@@ -1,10 +1,11 @@
 <template>
   <div id="app">
+    <button type="button" name="reset" @click="resetCards" >Reset</button>
     upper: <input type="number" name="upper" max="13" min="1" v-model="upper" placeholder="13">
-    <Suit suit="spades" :ranks="ranks"></Suit>
-    <Suit suit="hearts" :ranks="ranks"></Suit>
-    <Suit suit="clubs" :ranks="ranks"></Suit>
-    <Suit suit="diams" :ranks="ranks"></Suit>
+    <Suit ref="spades" suit="spades" :ranks="ranks"></Suit>
+    <Suit ref="hearts" suit="hearts" :ranks="ranks"></Suit>
+    <Suit ref="clubs" suit="clubs" :ranks="ranks"></Suit>
+    <Suit ref="diams" suit="diams" :ranks="ranks"></Suit>
   </div>
 </template>
 
@@ -23,6 +24,14 @@ export default {
       ranks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
       upper: '13',
     };
+  },
+  methods: {
+    resetCards () {
+      this.$refs.spades.$refs.card.forEach(i => i.isActive=true);
+      this.$refs.hearts.$refs.card.forEach(i => i.isActive=true);
+      this.$refs.clubs.$refs.card.forEach(i => i.isActive=true);
+      this.$refs.diams.$refs.card.forEach(i => i.isActive=true);
+    }
   },
   watch: {
     upper: function () {

@@ -1,8 +1,8 @@
 <template>
   <div class="playingCards">
     <ul class="table">
-      <li  v-for="rank in ranks" v-bind:key="rank">
-        <Card v-bind:key="rank" v-bind:rank="rank" v-bind:suit="suit"></Card>
+      <li v-for="rank in ranks" v-bind:key="rank">
+        <Card ref=card v-bind:key="rank" v-bind:rank="rank" v-bind:suit="suit"></Card>
       </li>
     </ul>
   </div>
