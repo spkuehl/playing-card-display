@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <p>Show Top: <input type="number" name="upper" max="13" min="1" v-model="upper" placeholder="13"></p>
+    <p>Show Top: <input type="number" name="upper" max="13" min="1" v-model="upper" placeholder="13">
+      <button type="button" @click="upper--" >Show Less</button>
+      <button type="button" @click="upper++" >Show More</button>
+    </p>
     <button type="button" name="all spades" @click="showAllSpades" >Show All Spades</button>
     <br>
     <button type="button" name="reset" @click="resetCards">Reset Round</button>
