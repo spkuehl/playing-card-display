@@ -1,11 +1,13 @@
 <template>
   <div id="app">
-    <button type="button" name="reset" @click="resetCards" >Reset</button>
-    upper: <input type="number" name="upper" max="13" min="1" v-model="upper" placeholder="13">
-    <Suit ref="spades" suit="spades" :ranks="ranks"></Suit>
-    <Suit ref="hearts" suit="hearts" :ranks="ranks"></Suit>
-    <Suit ref="clubs" suit="clubs" :ranks="ranks"></Suit>
-    <Suit ref="diams" suit="diams" :ranks="ranks"></Suit>
+    <p>Show Top: <input type="number" name="upper" max="13" min="1" v-model="upper" placeholder="13"></p>
+    <button type="button" name="all spades" @click="showAllSpades" >Show All Spades</button>
+    <br>
+    <button type="button" name="reset" @click="resetCards">Reset Round</button>
+    <Suit ref="spades" suit="spades" :ranks="spadesRanks"></Suit>
+    <Suit ref="hearts" suit="hearts" :ranks="heartsRanks"></Suit>
+    <Suit ref="clubs" suit="clubs" :ranks="clubsRanks"></Suit>
+    <Suit ref="diams" suit="diams" :ranks="diamsRanks"></Suit>
   </div>
 </template>
 
@@ -20,6 +22,10 @@ export default {
   data: function () {
     return {
       faceOnly: false,
+      spadesRanks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
+      heartsRanks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
+      clubsRanks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
+      diamsRanks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
       ranksList: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
       ranks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
       upper: '13',
@@ -31,11 +37,17 @@ export default {
       this.$refs.hearts.$refs.card.forEach(i => i.isActive=true);
       this.$refs.clubs.$refs.card.forEach(i => i.isActive=true);
       this.$refs.diams.$refs.card.forEach(i => i.isActive=true);
+    },
+    showAllSpades () {
+      this.spadesRanks = this.ranksList
     }
   },
   watch: {
     upper: function () {
-      this.ranks = (this.ranksList.slice(0,this.upper))
+      this.spadesRanks = (this.ranksList.slice(0,this.upper))
+      this.heartsRanks = (this.ranksList.slice(0,this.upper))
+      this.clubsRanks = (this.ranksList.slice(0,this.upper))
+      this.diamsRanks = (this.ranksList.slice(0,this.upper))
     }
   }
 }
@@ -48,7 +60,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 @import './assets/css/playing-cards/cards.css';
 </style>
