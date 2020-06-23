@@ -1,5 +1,5 @@
 <template>
-  <div v-on:click="toggleCard" class="playingCards">
+  <div v-on:click="toggleCard" class="playingCards faceImages">
     <a class="card" :class="[rankClass, [(isActive) ? suit : ''], {back: !isActive}]">
       <span class="rank">{{ rank }}</span>
       <span class="suit"><span v-html="suitSymbol"></span></span>
