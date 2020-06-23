@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <p>Show Top: <input type="number" name="upper" max="13" min="1" v-model="upper" placeholder="13">
-      <button type="button" @click="upper--" >Show Less</button>
-      <button type="button" @click="upper++" >Show More</button>
+      <button type="button" @click="upper--" :disabled="disableDownButton">Show Less</button>
+      <button type="button" @click="upper++" :disabled="disableUpButton">Show More</button>
     </p>
     <button type="button" name="all spades" @click="showAllSpades" >Show All Spades</button>
     <br>
@@ -32,6 +32,7 @@ export default {
       ranksList: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
       ranks: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
       upper: '13',
+      disabled: false
     };
   },
   methods: {
@@ -51,6 +52,20 @@ export default {
       this.heartsRanks = (this.ranksList.slice(0,this.upper))
       this.clubsRanks = (this.ranksList.slice(0,this.upper))
       this.diamsRanks = (this.ranksList.slice(0,this.upper))
+    }
+  },
+  computed: {
+    disableUpButton: function () {
+      if (Number(this.upper) <= 12) {
+        return false;
+      }
+      else return true;
+    },
+    disableDownButton: function () {
+      if (Number(this.upper) >= 2) {
+        return false;
+      }
+      else return true;
     }
   }
 }
