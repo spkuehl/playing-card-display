@@ -2,8 +2,8 @@
   <div v-on:click="toggleCard" class="playingCards faceImages">
     <a class="card"
        :class="[rankClass, [(isActive) ? suit : ''], {back: !isActive}]"
-       v-bind:style='{"font-size": (isMobile ? "1.2em" : ".6em"),
-                      "background-position": (isMobile ? "0 0":"-35px 0")}' >
+       v-bind:style='{"font-size": (isMobile ? ".6em" : "1.2em"),
+                      "background-position": (isMobile ? "-35px 0" : "0 0")}' >
       <span class="rank">{{ rank }}</span>
       <span class="suit"><span v-html="suitSymbol"></span></span>
     </a>
