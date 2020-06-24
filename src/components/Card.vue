@@ -1,6 +1,9 @@
 <template>
   <div v-on:click="toggleCard" class="playingCards faceImages">
-    <a class="card" :class="[rankClass, [(isActive) ? suit : ''], {back: !isActive}]">
+    <a class="card"
+       :class="[rankClass, [(isActive) ? suit : ''], {back: !isActive}]"
+       v-bind:style='{"font-size": (isMobile ? "1.2em" : ".6em"),
+                      "background-position": (isMobile ? "0 0":"-35px 0")}' >
       <span class="rank">{{ rank }}</span>
       <span class="suit"><span v-html="suitSymbol"></span></span>
     </a>
@@ -16,7 +19,8 @@ export default {
   },
   data: function () {
     return {
-      isActive: true
+      isActive: true,
+      isMobile: false
     };
   },
   computed: {
@@ -30,6 +34,9 @@ export default {
   methods: {
     toggleCard: function (){
       this.isActive = !this.isActive;
+    },
+    toggleMobile: function () {
+      this.isMobile = !this.isMobile;
     }
   }
 }

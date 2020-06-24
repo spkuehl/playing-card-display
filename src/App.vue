@@ -7,6 +7,7 @@
     <button type="button" name="all spades" @click="showAllSpades" >Show All Spades</button>
     <br>
     <button type="button" name="reset" @click="resetCards">Reset Round</button>
+    <button type="button" name="mobileCards" @click="mobileCards">Change Card Size</button>
     <Suit ref="spades" suit="spades" :ranks="spadesRanks"></Suit>
     <Suit ref="hearts" suit="hearts" :ranks="heartsRanks"></Suit>
     <Suit ref="clubs" suit="clubs" :ranks="clubsRanks"></Suit>
@@ -44,6 +45,12 @@ export default {
     },
     showAllSpades () {
       this.spadesRanks = this.ranksList
+    },
+    mobileCards () {
+      this.$refs.spades.$refs.card.forEach(i => i.toggleMobile());
+      this.$refs.hearts.$refs.card.forEach(i => i.toggleMobile());
+      this.$refs.clubs.$refs.card.forEach(i => i.toggleMobile());
+      this.$refs.diams.$refs.card.forEach(i => i.toggleMobile());
     }
   },
   watch: {
